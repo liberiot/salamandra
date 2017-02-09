@@ -1,0 +1,17 @@
+{
+    "mqtt_broker_port": 1884,
+    "serial": {
+        "port": "/dev/ttyUSB0",
+        "speed": 38400
+    },
+    "liberiot": {
+        "server": "mqtt.liberiot.org",
+        "port": 3001,
+        "main_topic": "liberiot",
+        "user_key": "YOUR_USER_KEY"
+    },
+    "coordinates": {
+        "latitude": 42.3438853,
+        "longitude": -7.9747611
+    }
+}
