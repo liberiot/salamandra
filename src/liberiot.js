@@ -70,6 +70,15 @@ export default class Liberiot {
 
     getDate() {
         let date = new Date();
-        return '[' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']';
+        let hours = date.getHours().toString();
+        let minutes = date.getMinutes().toString();
+        let seconds = date.getSeconds().toString();
+
+        hours.length < 2 ? hours = '0' + hours : null;
+        minutes.length < 2 ? minutes = '0' + minutes : null;
+        seconds.length < 2 ? seconds = '0' + seconds : null;
+
+        return '[' + hours + ':' + minutes + ':' + seconds + ']';
     }
+
 }
