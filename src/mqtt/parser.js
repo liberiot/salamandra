@@ -1,7 +1,5 @@
 'use strict';
 
-const crypto = require("crypto-js");
-const AES = crypto.AES;
 const lodash = require('lodash');
 
 import schemes from '../schemes';

@@ -18,6 +18,7 @@ export default class Liberiot {
                 this.config.gateway_key = mac;
                 this.publishGatewayCoords();
                 this.publishStatus('CONNECTED');
+                this.publishStatus();
                 this.setPeriodicHeartBeat(60);
             })
             .catch((err) => console.error(err));
@@ -60,7 +61,9 @@ export default class Liberiot {
 
     publishStatus(status = 'RUNNING') {
         this.liberiotClient.publish(this.getGatewayTopic(), status);
-        console.log(this.getDate() + ' Heartbeat...');
+        if (status === 'RUNNING') {
+            console.log(this.getDate() + ' Heartbeat...');
+        }
     }
 
     publishGatewayCoords() {
