@@ -1,6 +1,6 @@
 # Salamandra
 
-Salamandra is a local implementation of Liberiot. It acts as any other Liberiot gateway (packet forwarder), transmitting raw GWAP packets to the liberiot cloud and also converts GWAP packets to MQTT locally. This means that Salamandra can be used to pass MQTT packets to a local automation server, enabling local programmings. Salamandra is then specially indicated for home and building automation.
+Salamandra is a local implementation of Liberiot. It acts as any other Liberiot gateway (packet forwarder), transmitting raw GWAP packets to the liberiot cloud and also converting GWAP packets to MQTT locally. This means that Salamandra can be used to pass MQTT packets to a local automation server, enabling local programmings. Salamandra is then specially indicated for home and building automation.
 
 # Installation
 
@@ -55,10 +55,17 @@ Where USERKEY is your Liberiot user key, which can be found in the web backend. 
 ```
 pm2 save
 ```
-Next time you reboot your system Salamandra should automatically start. YOu can check this by displaying the list of PM2 processes with
+Next time you reboot your system Salamandra should automatically start. You can check this by displaying the list of PM2 processes with
 
 ```
 pm2 list
 
 ```
+Another interesting command is "pm2 monit". It displays a nice terminal showing the activity of Salamandra, including wireless traffic and system messages.
+
+```
+pm2 monit
+
+```
+
 
