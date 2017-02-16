@@ -1,18 +1,7 @@
 {
   "name": "salamandra",
-  "version": "0.0.3",
+  "version": "0.0.2",
   "description": "lagarto version for nodejs",
-  "keywords": [
-    "liberiot",
-    "iot",
-    "salamandra",
-    "panstamp",
-    "lagarto"
-  ],
-  "bugs": {
-    "url": "https://github.com/liberiot/salamandra/issues"
-  },
-  "homepage": "http://liberiot.org/",
   "main": "index.js",
   "scripts": {
     "test": "test",
@@ -21,10 +10,6 @@
   },
   "author": "inubo",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/liberiot/salamandra"
-  },
   "dependencies": {
     "getmac": "^1.2.1",
     "ip": "^1.1.4",
