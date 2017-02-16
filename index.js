@@ -2,7 +2,7 @@
 
 const userKey = process.argv[2];
 
-if (userKey) {
+if (userKey.length >= 24) {
     const fs = require('fs');
     let config = require('./config');
     config.liberiot.user_key = userKey;

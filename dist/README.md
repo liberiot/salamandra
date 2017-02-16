@@ -8,7 +8,7 @@ Getting started:
  
 Make sure to change your user key in config.json in order to connect with [Liberiot Cloud](http://www.liberiot.org) (it's free). 
 
-For production environments we recommend make a build distribution. To do this just exec the build command:
+For production environments we recommend to make a build distribution. To do this just exec the build command:
 
  - npm run build
  - cd dist
