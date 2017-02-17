@@ -17,7 +17,7 @@
   "scripts": {
     "test": "test",
     "start": "nodemon index.js --exec babel-node --presets es2015",
-    "build": "babel . --out-dir dist --ignore node_modules,dist --copy-files"
+    "build": "babel . --out-dir build --ignore node_modules,build --copy-files"
   },
   "author": "inubo",
   "license": "ISC",
