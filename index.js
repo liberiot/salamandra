@@ -14,4 +14,4 @@ if (userKey) {
 
 
 const mqttBroker = require('./src/mqtt/moscaBroker');
-const app = require('./src/app');
+export const app = require('./src/app');
