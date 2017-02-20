@@ -20,6 +20,8 @@ export default class Liberiot {
                 this.publishStatus('CONNECTED');
                 this.publishStatus();
                 this.setPeriodicHeartBeat(60);
+                this.liberiotClient.subscribe(this.getControlTopic() + '/#');
+                console.log(this.getControlTopic());
             })
             .catch((err) => console.error(err));
 
@@ -82,6 +84,10 @@ export default class Liberiot {
         seconds.length < 2 ? seconds = '0' + seconds : null;
 
         return '[' + hours + ':' + minutes + ':' + seconds + ']';
+    }
+
+    getLiberiotMqtt() {
+        return this.liberiotClient;
     }
 
 }

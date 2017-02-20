@@ -9,7 +9,8 @@ const config = require('../config');
 const SerialPort = require('serialport');
 
 const CONTROL = 'control';
-const ACTION_TOPIC = 1;
+const ACTION_TOPIC = 3;
+// const CONTROL_TOPIC = 'liberiot/' + config.liberiot.user_key + '/control/#';
 
 const port = new SerialPort(config.serial.port, {
     baudRate: config.serial.speed,
@@ -19,6 +20,7 @@ const port = new SerialPort(config.serial.port, {
 localClient.on('connect', () => localClient.subscribe('#'));
 
 const liberiot = new Liberiot();
+const liberiotClient = liberiot.getLiberiotMqtt();
 
 const onData = (msg) => {
     if (msg[0] === '(' & msg[5] === ')') {
@@ -27,6 +29,7 @@ const onData = (msg) => {
         liberiot.publish(rawData);
     }
 };
+
 
 function publishLocal(msg) {
     let transmission = parse(msg);
@@ -51,11 +54,25 @@ const onError = (err) => {
 port.on('error', (err) => onError(err));
 port.on('data', (msg) => onData(msg));
 
-localClient.on('message', (topic, msg) => {
+localClient.on('message', echoLocalMessage);
+liberiotClient.on('message', echoLibeirotMessage);
+
+function echoLocalMessage(topic, msg) {
     let topics = topic.split('/');
     if (topics[ACTION_TOPIC] === CONTROL) {
         let message = msg + '\r';
         let buffer = new Buffer(message);
         port.write(buffer, (err) => err ? console.log('Error on write ' + err.message) : console.log('Message written: ' + message.toString()));
     }
-})
+
+}
+
+function echoLibeirotMessage(topic, payload) {
+    let msg = payload.toString();
+    let topics = topic.split('/');
+    if (topics[ACTION_TOPIC] === CONTROL) {
+        let message = msg + '\r';
+        let buffer = new Buffer(message);
+        port.write(buffer, (err) => err ? console.log('Error on write ' + err.message) : console.log('Message written: ' + message.toString()));
+    }
+}
