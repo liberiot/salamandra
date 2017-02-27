@@ -8,7 +8,7 @@
     "server": "mqtt.liberiot.org",
     "port": 3001,
     "main_topic": "liberiot",
-    "user_key": "YOUR_USER_KEY"
+    "user_key": "570270DEB83D09D24AB1630E"
   },
   "coordinates": {
     "latitude": 42.3438853,
