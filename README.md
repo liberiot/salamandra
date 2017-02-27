@@ -68,4 +68,9 @@ pm2 monit
 
 ```
 
+# Testing Salamandra
 
+```
+npm test
+
+```

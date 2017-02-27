@@ -15,7 +15,7 @@
   "homepage": "http://liberiot.org/",
   "main": "index.js",
   "scripts": {
-    "test-unit": "NODE_ENV=test mocha 'test.js' --require babel-core/register",
+    "test": "NODE_ENV=test mocha 'test.js' --require babel-core/register",
     "start": "nodemon index.js --exec babel-node",
     "build": "babel . --out-dir build --ignore node_modules,build,test.js --copy-files --minified"
   },
